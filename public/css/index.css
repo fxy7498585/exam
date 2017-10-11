@@ -195,16 +195,17 @@ li{
 	border:1px solid gray;
 	border-radius: 4px;
 }
-.content .content_contents .contents_top div:nth-child(1) label{
+.content .content_contents .contents_top div:nth-child(1) button{
 	width: 50px;
 	height: 30px;
 	background: #fff;
 	border:1px solid gray;
 	border-radius: 4px;
-	display: flex;
+	/*display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: center;*/
+	cursor: pointer;
 }
 .content .content_contents .contents_top div:nth-child(2){margin-right: 5px;}
 .content .content_contents .contents_top div:nth-child(2) span:first-child{
@@ -278,8 +279,15 @@ li{
 	opacity: .5;
 }
 .contents_middle .topic div>div:nth-child(2){
-	height: 150px;
+	height:30px;
 	padding-top: 20px;
+}
+.contents_middle .topic div>div:nth-child(3),
+.contents_middle .topic div>div:nth-child(4),
+.contents_middle .topic div>div:nth-child(5),
+.contents_middle .topic div>div:nth-child(6){
+	margin-left: 20px;
+	padding:5px;
 }
 .contents_middle .topic div>div:last-child{
 	padding-bottom: 20px;

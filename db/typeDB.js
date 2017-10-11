@@ -36,9 +36,25 @@ module.exports = {
       var sql="update tbl_exam_subject set checkState='"+state+"' where id="+id;
       return pool.execute(sql);
     },
+    //删除题目
     delete(id){
       var sql="delete from tbl_exam_subject where id="+id;
       return pool.execute(sql);
+    },
+    //获取正确答案
+    findRightAnswer(id){
+      var sql="select * from tbl_exam_choice where subject_id="+id;
+      return pool.execute(sql);
+    },
+    //模糊查询
+    query(keys){
+      var sql="select * from tbl_exam_subject where stem like '%"+keys+"%'";
+      return pool.execute(sql);
+    },
+    //id查询
+    findById(id){
+      var sql="select * from tbl_exam_subject where id="+id;
+       return pool.execute(sql);
     }
 
 }

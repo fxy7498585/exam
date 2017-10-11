@@ -44,7 +44,7 @@ route.get('/findAllSubject',(req,resp)=>{
 		resp.send(err);
 	});
 });
-
+//
 route.get('/findSubjectById',(req,resp)=>{
 	ids=req.query.ids;
 	console.log(ids);
@@ -55,6 +55,7 @@ route.get('/findSubjectById',(req,resp)=>{
 		resp.send(err);
 	});
 });
+//通过or不通过
 route.get('/passTheAudit',(req,resp)=>{
 	var state=req.query.state;
 	var id=req.query.id;
@@ -64,11 +65,33 @@ route.get('/passTheAudit',(req,resp)=>{
 		resp.send(err);
 	});
 });
-
+//删除题目
 route.get('/delete',(req,resp)=>{
 	var id=req.query.id;
 	console.log(id);
 	typeDB.delete(id).then((data)=>{
+		resp.send(data);
+	}).catch((err)=>{
+		resp.send(err);
+	});
+});
+//查找正确答案
+route.get('/findRightAnswer',(req,resp)=>{
+	typeDB.findRightAnswer(req.query.id).then((data)=>{
+		resp.send(data);
+	}).catch((err)=>{
+		resp.send(err);
+	});
+});
+route.get('/query/:keys',(req,resp)=>{
+	typeDB.query(req.params.keys).then((data)=>{
+		resp.send(data);
+	}).catch((err)=>{
+		resp.send(err);
+	});
+});
+route.get('/findById',(req,resp)=>{
+	typeDB.findById(req.query.id).then((data)=>{
 		resp.send(data);
 	}).catch((err)=>{
 		resp.send(err);
